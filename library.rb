@@ -28,4 +28,16 @@ class Library
       end
     end
   end
+
+  def find_book(title)
+    found = @books.find {|book| book.title == title}
+
+    if found
+      puts "Book found"
+      puts "Title: #{found.title}"
+      puts "Author: #{found.author}"
+    else
+      puts "Book No found"
+    end
+  end
 end
