@@ -13,7 +13,7 @@ class Book
     end
   end
 
-  def borrow
+  def borrow_book
     if @available
       @available = false
       puts "Book borrowed"
@@ -21,6 +21,12 @@ class Book
       puts "Already borrowed"
     end
   end
+
+  def return_book
+    @available = true
+    puts "Book returned"
+  end
+
 end
 
 

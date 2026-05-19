@@ -2,5 +2,14 @@ require_relative "book"
 
 book1 = Book.new("Ruby Basic", "David")
 book1.available?
-book1.borrow
+book1.borrow_book
+book1.borrow_book
+
 book1.available?
+book1.return_book
+book1.available?
+book1.borrow_book
+
+
+
+
