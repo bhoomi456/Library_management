@@ -13,9 +13,16 @@ class Book
     end
   end
 
-  
-
+  def borrow
+    if @available
+      @available = false
+      puts "Book borrowed"
+    else
+      puts "Already borrowed"
+    end
+  end
 end
 
-# book1 = Book.new("Ruby basic", "David")
-# book1.available?
+
+
+
