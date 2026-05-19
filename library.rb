@@ -31,13 +31,31 @@ class Library
 
   def find_book(title)
     found = @books.find {|book| book.title == title}
-
     if found
-      puts "Book found"
-      puts "Title: #{found.title}"
-      puts "Author: #{found.author}"
+      found
     else
-      puts "Book No found"
+      puts "Not found"
+    end
+
+    # if found
+    #   puts "Book found"
+    #   puts "Title: #{found.title}"
+    #   puts "Author: #{found.author}"
+    # else
+    #   puts "Book No found"
+    # end
+  end
+
+  def borrow_book(title)
+
+    book = find_book(title)
+
+    if book
+      book.borrow_book
+    else
+      puts "Book Not Available for borrowing"
     end
   end
 end
+
+  

@@ -7,11 +7,7 @@ class Book
   end
   
   def available?
-    if @available
-      puts "Book Available"
-    else
-      puts "Book not Available"
-    end
+    @available
   end
 
   def borrow_book
@@ -22,6 +18,8 @@ class Book
       puts "Already borrowed"
     end
   end
+
+  
 
   def return_book
     @available = true
