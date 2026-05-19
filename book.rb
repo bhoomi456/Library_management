@@ -19,8 +19,6 @@ class Book
     end
   end
 
-  
-
   def return_book
     @available = true
     puts "Book returned"

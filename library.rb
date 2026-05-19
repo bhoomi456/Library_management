@@ -36,14 +36,6 @@ class Library
     else
       puts "Not found"
     end
-
-    # if found
-    #   puts "Book found"
-    #   puts "Title: #{found.title}"
-    #   puts "Author: #{found.author}"
-    # else
-    #   puts "Book No found"
-    # end
   end
 
   def borrow_book(title)
@@ -54,6 +46,16 @@ class Library
       book.borrow_book
     else
       puts "Book Not Available for borrowing"
+    end
+  end
+
+  def return_book(title)
+    book = find_book(title)
+
+    if book 
+      book.return_book
+    else
+      puts "Book Not Found"
     end
   end
 end

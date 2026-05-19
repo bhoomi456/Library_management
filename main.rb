@@ -15,9 +15,12 @@ library.display_books
 library.add_book(book1)
 library.add_book(book2)
 library.display_books
-library.find_book("Ruby")
+library.find_book("Ruby Basic")
 library.borrow_book("Ruby Basic")
-library.borrow_book("Ruby Basic")
+library.display_books
+
+library.return_book("Ruby Basic")
+library.display_books
 
 
 
