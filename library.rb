@@ -11,4 +11,18 @@ class Library
     @books << book
     puts "#{book.title} Added successfully"
   end
+
+  def display_books
+    if @books.empty?
+      puts "No Books Available"
+    else
+      @books.each do |book|
+        status = book.available? ? "Available" : "Borrowed"  #ternary operator
+
+        puts "Title : #{book.title}"
+        puts "Author : #{book.author}"
+        puts "Status : #{status}"
+      end
+    end
+  end
 end
