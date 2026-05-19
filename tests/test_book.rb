@@ -9,4 +9,8 @@ class TestBook < Minitest::Test
   def test_book_title
     assert_equal "Ruby Basic", @book1.title
   end
+
+  def test_book_author
+    assert_equal "David", @book1.author
+  end
 end
