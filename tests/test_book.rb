@@ -20,4 +20,12 @@ class TestBook < Minitest::Test
     end
     assert_equal "Book Available\n", output[0]
   end
+
+  def test_book_not_available
+    @book1.borrow_book
+    output = capture_io do
+      @book1.available?
+    end
+    assert_equal "Book not Available\n", output[0]
+  end
 end
