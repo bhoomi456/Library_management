@@ -6,4 +6,9 @@ class Library
     @library_name = library_name
     @books = []
   end
+
+  def add_book(book)
+    @books << book
+    puts "#{book.title} Added successfully"
+  end
 end
