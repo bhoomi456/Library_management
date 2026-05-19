@@ -13,6 +13,7 @@ class Library
   end
 
   def display_books
+    puts "Library Name: #{library_name}"
     if @books.empty?
       puts "No Books Available"
     else
@@ -22,6 +23,8 @@ class Library
         puts "Title : #{book.title}"
         puts "Author : #{book.author}"
         puts "Status : #{status}"
+
+        puts "----------------------"
       end
     end
   end

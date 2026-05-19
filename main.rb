@@ -10,7 +10,7 @@ book1.available?
 book1.return_book
 book1.available?
 
-library = Library.new("MY library")
+library = Library.new("City library")
 library.add_book(book1)
 library.display_books
 
