@@ -19,7 +19,7 @@ class Book
     end
   end
 
-  def return_book
+  def return
     @available = true
     puts "Book returned"
   end
