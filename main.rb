@@ -15,6 +15,8 @@ library.display_books
 puts "----------------------"
 
 library.add_book(book1)
+library.add_book(book1) #book already exist, we don't add same book again
+
 library.add_book(book2)
 
 puts "----------------------"
