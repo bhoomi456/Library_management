@@ -1,5 +1,6 @@
 require_relative "book"
 require_relative "library"
+require_relative "member"
 
 book1 = Book.new("Ruby Basic", "David")
 book2 = Book.new("Rails Guide", "Roy")
@@ -32,6 +33,5 @@ library.return_book("Ruby Basic")
 puts "----------------------"
 library.display_books
 
-
-
-
+member = Member.new("Bhoomi")
+member.borrowed_book(book2)
