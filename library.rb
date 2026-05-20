@@ -39,14 +39,7 @@ class Library
   end
 
   def borrow_book(title)
-
-    book = find_book(title)
-
-    if book
-      book.borrow
-    else
-      puts "Book Not Available for borrowing"
-    end
+    book_action(title, :borrow, "Book Not Abailable To Borrowing")
   end
 
   def return_book(title)
@@ -56,6 +49,18 @@ class Library
       book.return
     else
       puts "Book Not Found"
+    end
+  end
+
+  private
+
+  def book_action(title, action, error_message)
+    book = find_book(title)
+
+    if book
+      book.send(action)
+    else
+      puts error_message
     end
   end
 end
