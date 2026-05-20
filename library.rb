@@ -58,11 +58,19 @@ class Library
       end
     end
   end
+
   def available_books_count
     count = @books.count do |book|
       book.available?
     end
     puts "Available books : #{count}"
+  end
+
+  def borrowed_books_count
+    count = @books.count do |book|
+      book.available?
+    end
+    puts "Borrowed books : #{count}"
   end
 
 
