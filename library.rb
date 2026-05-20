@@ -39,12 +39,12 @@ class Library
   end
 
   private
-  
+
   def book_action(title, action, error_message)
     book = find_book(title)
 
     if book
-      book.borrow
+      book.send(action)
     else
       puts error_message
     end
