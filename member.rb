@@ -12,4 +12,9 @@ class Member
     @borrowed << book
     puts "#{book.title} Borrowed By #{name}"
   end
+
+  def returend_book(book)
+    @borrowed.delete(book)
+    puts "#{book.title} Returned By #{name}"
+  end
 end
