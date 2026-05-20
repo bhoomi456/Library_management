@@ -4,7 +4,7 @@ require_relative "member"
 
 book1 = Book.new("Ruby Basic", "David")
 book2 = Book.new("Rails Guide", "Roy")
-# book1.available?
+# book1.return
 # book1.borrow_book
 # book1.available?
 # book1.borrow_book

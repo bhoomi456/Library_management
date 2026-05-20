@@ -2,8 +2,8 @@ require_relative "book"
 
 class Library
   attr_reader :library_name
-  def initialize(library_name)
-    @library_name = library_name
+  def initialize(name)
+    @name = name
     @books = []
   end
 
@@ -20,7 +20,7 @@ class Library
   end
 
   def display_books
-    puts "Library Name: #{library_name}"
+    puts "Library Name: #{name}"
     if @books.empty?
       puts "No Books Available"
     else
@@ -51,7 +51,6 @@ class Library
 
   def return_book(title)
     book_action(title, :return, "Book Not Exist")
-
   end
 
   private
