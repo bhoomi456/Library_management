@@ -13,7 +13,7 @@ class Member
       @borrowed << book
 
       book.borrow
-      
+
       puts "#{book.title} Borrowed By #{name}"
     else
       puts "Book Not Available"
@@ -21,7 +21,14 @@ class Member
   end
 
   def returend_book(book)
-    @borrowed.delete(book)
-    puts "#{book.title} Returned By #{name}"
+    if @borrowed.include?(book)
+      @borrowed.delete(book)
+
+      book.return
+
+      puts "#{book.title} Returned By #{name}"
+    else
+      puts "This member did not borrow this code"
+    end
   end
 end
