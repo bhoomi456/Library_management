@@ -38,6 +38,14 @@ class Library
     end
   end
 
+  def borrow_book(title)
+    book_action(title, :borrow, "Book Not Abailable To Borrowing")
+  end
+
+  def return_book(title)
+    book_action(title, :return, "Book Not Abailable To Borrowing")
+  end
+
   private
 
   def book_action(title, action, error_message)
@@ -47,27 +55,6 @@ class Library
       book.send(action)
     else
       puts error_message
-    end
-  end
-
-  def borrow_book(title)
-
-    book = find_book(title)
-
-    if book
-      book.borrow
-    else
-      puts "Book Not Available For Borrowing"
-    end
-  end
-
-  def return_book(title)
-    book = find_book(title)
-
-    if book 
-      book.return
-    else
-      puts "Book Not Found"
     end
   end
 end
