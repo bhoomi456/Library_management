@@ -43,13 +43,8 @@ class Library
   end
 
   def return_book(title)
-    book = find_book(title)
+    book_action(title, :return, "Book Not Abailable To Borrowing")
 
-    if book 
-      book.return
-    else
-      puts "Book Not Found"
-    end
   end
 
   private
