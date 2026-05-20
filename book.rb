@@ -10,8 +10,8 @@ class Book
     @available
   end
 
-  def borrow_book
-    if @available
+  def borrow
+    if available?
       @available = false
       puts "Book borrowed"
     else

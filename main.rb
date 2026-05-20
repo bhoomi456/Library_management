@@ -12,14 +12,22 @@ book2 = Book.new("Rails Guide", "Roy")
 
 library = Library.new("City Library")
 library.display_books
+puts "----------------------"
+
 library.add_book(book1)
 library.add_book(book2)
+
+puts "----------------------"
 library.display_books
 library.find_book("Ruby Basic")
+
+puts "----------------------"
 library.borrow_book("Ruby Basic")
+puts "----------------------"
 library.display_books
 
 library.return_book("Ruby Basic")
+puts "----------------------"
 library.display_books
 
 
