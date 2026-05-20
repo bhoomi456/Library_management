@@ -38,6 +38,18 @@ class Library
     end
   end
 
+  private
+  
+  def book_action(title, action, error_message)
+    book = find_book(title)
+
+    if book
+      book.borrow
+    else
+      puts error_message
+    end
+  end
+
   def borrow_book(title)
 
     book = find_book(title)
@@ -45,7 +57,7 @@ class Library
     if book
       book.borrow
     else
-      puts "Book Not Available for borrowing"
+      puts "Book Not Available For Borrowing"
     end
   end
 
