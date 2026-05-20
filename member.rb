@@ -9,8 +9,15 @@ class Member
   end
 
   def borrowed_book(book)
-    @borrowed << book
-    puts "#{book.title} Borrowed By #{name}"
+    if book.available?
+      @borrowed << book
+
+      book.borrow
+      
+      puts "#{book.title} Borrowed By #{name}"
+    else
+      puts "Book Not Available"
+    end
   end
 
   def returend_book(book)
