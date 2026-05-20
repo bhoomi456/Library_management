@@ -58,6 +58,13 @@ class Library
       end
     end
   end
+  def available_books_count
+    count = @books.count do |book|
+      book.available?
+    end
+    puts "Available books : #{count}"
+  end
+
 
   def borrow_book(title)
     book_action(title, :borrow, "Book Not Abailable To Borrowing")

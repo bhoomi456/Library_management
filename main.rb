@@ -33,6 +33,7 @@ member = Member.new("Bhoomi")
 member.borrowed_book(book2)
 member.borrowed_book(book1)
 member.borrowed_book(book3)
+library.available_books_count
 
 library.display_books
 
