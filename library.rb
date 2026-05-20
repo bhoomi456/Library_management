@@ -20,7 +20,7 @@ class Library
   end
 
   def display_books
-    puts "Library Name: #{name}"
+    puts "Library Name: #{@name}"
     if @books.empty?
       puts "No Books Available"
     else

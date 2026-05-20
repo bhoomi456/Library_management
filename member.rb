@@ -9,19 +9,24 @@ class Member
   end
 
   def borrowed_book(book)
-    if book.available?
-      @borrowed << book
+    if @borrowed.length >= 2
 
+      puts "#{name} cannot borrow more than two books"
+      
+    elsif book.available?
+
+      @borrowed << book
       book.borrow
 
       puts "#{book.title} Borrowed By #{name}"
+
     else
       puts "Book Not Available"
     end
   end
 
   def returend_book(book)
-    if @borrowed.include?(book)
+    if @borrowed.include?(book)  # check if member actually borrowed book
       @borrowed.delete(book)
 
       book.return
