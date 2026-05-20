@@ -43,7 +43,7 @@ class Library
   end
 
   def return_book(title)
-    book_action(title, :return, "Book Not Abailable To Borrowing")
+    book_action(title, :return, "Book Not Exist")
   end
 
   private
