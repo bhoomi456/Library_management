@@ -8,8 +8,15 @@ class Library
   end
 
   def add_book(book)
-    @books << book
-    puts "#{book.title} Added successfully"
+    existing_book = @books.find do |b|
+      b.title == book.title
+    end
+    if existing_book
+      puts "Book Already Exist"
+    else
+      @books << book
+      puts "#{book.title} Added Successfully"
+    end  
   end
 
   def display_books
@@ -38,13 +45,13 @@ class Library
     end
   end
 
-
   def borrow_book(title)
     book_action(title, :borrow, "Book Not Abailable To Borrowing")
   end
 
   def return_book(title)
     book_action(title, :return, "Book Not Abailable To Borrowing")
+
   end
 
   private
