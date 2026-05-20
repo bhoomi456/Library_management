@@ -43,7 +43,7 @@ class Library
     book = find_book(title)
 
     if book
-      book.borrow_book
+      book.borrow
     else
       puts "Book Not Available for borrowing"
     end
@@ -53,7 +53,7 @@ class Library
     book = find_book(title)
 
     if book 
-      book.return_book
+      book.return
     else
       puts "Book Not Found"
     end
