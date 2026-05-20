@@ -8,7 +8,7 @@ class Member
     @borrowed = []
   end
 
-  def borrow_book(book)
+  def borrowed_book(book)
     @borrowed << book
     puts "#{book.title} Borrowed By #{name}"
   end
