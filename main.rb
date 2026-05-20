@@ -4,6 +4,7 @@ require_relative "member"
 
 book1 = Book.new("Ruby Basic", "David")
 book2 = Book.new("Rails Guide", "Roy")
+book3 = Book.new("Python", "Roben")
 # book1.return
 # book1.borrow_book
 # book1.available?
@@ -16,9 +17,10 @@ library.display_books
 puts "----------------------"
 
 library.add_book(book1)
-library.add_book(book1) #book already exist, we don't add same book again
+library.add_book(book2) #book already exist, we don't add same book again
+library.add_book(book3)
 
-library.add_book(book2)
+# library.add_book(book2)
 
 puts "----------------------"
 library.display_books
@@ -35,6 +37,9 @@ library.display_books
 
 member = Member.new("Bhoomi")
 member.borrowed_book(book2)
+member.borrowed_book(book1)
+member.borrowed_book(book3)
+
 library.display_books
 
 member.returend_book(book2)
