@@ -9,7 +9,7 @@ class Member
   end
 
   def borrowed_book(book)
-    if @borrowed.length >= 2
+    if @borrowed.length >= 2  #Allow one member to borrow only two books at a time.
 
       puts "#{name} cannot borrow more than two books"
       

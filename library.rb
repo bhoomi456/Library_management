@@ -8,7 +8,8 @@ class Library
   end
 
   def add_book(book)
-    existing_book = @books.find do |b|
+    existing_book = @books.find do |b|  #Prevent duplicate books with the same title.
+
       b.title == book.title
     end
     if existing_book
@@ -42,6 +43,19 @@ class Library
       found
     else
       puts "Not found"
+    end
+  end
+
+  def search_by_author(author)
+    books = @books.select do |book|
+      book.author == author
+    end
+    if books.empty?
+      puts "No Books found"
+    else
+      books.each do |book|
+        puts "#{book.title} By #{book.author}"
+      end
     end
   end
 
