@@ -9,7 +9,7 @@ book4 = Book.new("Java", "David")
 
 
 library = Library.new("City Library")
-member = Member.new("Bhoomi")
+member1 = Member.new("Bhoomi")
 library.add_member("Bhoomi")
 library.display_books
 puts "----------------------"
@@ -20,38 +20,29 @@ library.add_book(book3)
 library.add_book(book4)
 
 
+
 # library.add_book(book2)
 
 puts "----------------------"
 library.display_books
-library.find_book("Ruby Basic")
 
 puts "----------------------"
-library.borrow_book("Ruby Basic")
+library.borrow_book("Ruby Basic", member1)
 puts "----------------------"
 library.display_books
 
-library.return_book("Ruby Basic")
 puts "----------------------"
 library.display_books
 
 
-member.borrowed_book(book2)
-puts "----------------------"
-member.borrowed_book(book1)
-puts "----------------------"
-member.borrowed_book(book3)
-puts "----------------------"
 library.available_books_count
 puts "----------------------"
 library.borrowed_books_count
 puts "----------------------"
 library.display_books
 
-member.returend_book(book2)
-puts "----------------------"
 
-library.display_books
+
 puts "----------------------"
 library.search_by_author("David")
 

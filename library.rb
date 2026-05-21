@@ -1,4 +1,5 @@
 class Library
+  MAX_BORROW_LIMIT = 2
   attr_reader :library_name
   def initialize(name)
     @name = name
@@ -77,24 +78,44 @@ class Library
     puts "Borrowed books : #{count}"
   end
 
+  def borrow_book(title, member)
+    book = find_book(title)
+
+    if book.nil?
+      puts "Book not found"
+
+    elsif !book.available?
+      puts "Book Not Available"
+
+    elsif member.limit_reached?
+      puts "puts #{member.name} cannot borrow more that two books"
+      
+    else
+      book.borrow
+      member.add_borrow_book(book)
+
+      puts "#{book.title} borrowed by #{member.name}"
+    end
+  end
+
 
   
 
-  def return_book(title)
-    book_action(title, :return, "Book Not Exist")
-  end
+  # def return_book(title)
+  #   book_action(title, :return, "Book Not Exist")
+  # end
 
-  private
+  # private
 
-  def book_action(title, action, error_message)
-    book = find_book(title)
+  # def book_action(title, action, error_message)
+  #   book = find_book(title)
 
-    if book
-      book.send(action)
-    else
-      puts error_message
-    end
-  end
+  #   if book
+  #     book.send(action)
+  #   else
+  #     puts error_message
+  #   end
+  # end
 end
 
   
