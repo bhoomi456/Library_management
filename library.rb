@@ -3,6 +3,12 @@ class Library
   def initialize(name)
     @name = name
     @books = []
+    @member = []
+  end
+
+  def add_member(member)
+    @member << member
+    puts "#{member} Added Successfully "
   end
 
   def add_book(book)
@@ -72,9 +78,7 @@ class Library
   end
 
 
-  def borrow_book(title)
-    book_action(title, :borrow, "Book Not Abailable To Borrowing")
-  end
+  
 
   def return_book(title)
     book_action(title, :return, "Book Not Exist")
