@@ -8,8 +8,17 @@ class Library
   end
 
   def add_member(member)
-    @member << member
-    puts "#{member} Added Successfully "
+    existing_member = find_member(member)
+    if existing_member
+      puts "Member Already Exist"
+    else
+      @members << member
+      puts "#{member} Added Successfully "
+    end
+  end
+
+  def find_member(name)
+    @members.find { |member| member.downcase == name.downcase }
   end
 
   def add_book(book)
@@ -100,7 +109,7 @@ class Library
     elsif member.borrowed.include?(book)  
       book.return
 
-      member.remove_borrow_book(book)
+      member.returned_borrow_book(book)
 
       puts "#{book.title} Returned by #{member.name}"
     else

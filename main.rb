@@ -13,6 +13,8 @@ member1 = Member.new("Bhoomi")
 member1 = Member.new("Bhoomi")
 
 library.add_member("Bhoomi")
+library.add_member("Bhoomi")
+
 library.display_books
 puts "----------------------"
 
