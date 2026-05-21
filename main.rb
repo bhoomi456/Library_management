@@ -2,51 +2,102 @@ require_relative "book"
 require_relative "library"
 require_relative "member"
 
-book1 = Book.new("Ruby Basic", "David")
-book2 = Book.new("Rails Guide", "Roy")
-book3 = Book.new("Python", "Roben")
-book4 = Book.new("Java", "David")
+print "Enter Library Name: "
+library_name = gets.chomp
 
+library = Library.new(library_name)
 
-library = Library.new("City Library")
-member1 = Member.new("Bhoomi")
-member1 = Member.new("Bhoomi")
+loop do
+  puts
+  puts "===== Library Management System ====="
+  puts "1. Add Member"
+  puts "2. Add Book"
+  puts "3. Display Books"
+  puts "4. Borrow Book"
+  puts "5. Return Book"
+  puts "6. Search By Author"
+  puts "7. Available Books Count"
+  puts "8. Borrowed Books Count"
+  puts "9. Exit"
 
-library.add_member("Bhoomi")
-library.add_member("Bhoomi")
+  print "Enter Your Choice: "
+  choice = gets.chomp.to_i
 
-library.display_books
-puts "----------------------"
+  case choice
 
-library.add_book(book1)
-library.add_book(book2) #book already exist, we don't add same book again
-library.add_book(book3)
-library.add_book(book4)
+  when 1
+    print "Enter Member Name: "
+    name = gets.chomp
 
+    member = Member.new(name)
 
+    library.add_member(member)
 
-# library.add_book(book2)
+  when 2
+    print "Enter Book Title: "
+    title = gets.chomp
 
-puts "----------------------"
-library.display_books
+    print "Enter Author Name: "
+    author = gets.chomp
 
-puts "----------------------"
-library.borrow_book("Ruby Basic", member1)
-puts "----------------------"
-library.display_books
-library.return_book("Ruby Basic", member1)
-puts "----------------------"
-library.display_books
+    book = Book.new(title, author)
 
+    library.add_book(book)
 
-library.available_books_count
-puts "----------------------"
-library.borrowed_books_count
-puts "----------------------"
-library.display_books
+  when 3
+    library.display_books
 
+  when 4
+    print "Enter Member Name: "
+    member_name = gets.chomp
 
+    member = library.find_member(member_name)
 
-puts "----------------------"
-library.search_by_author("David")
+    if member
 
+      print "Enter Book Title: "
+      title = gets.chomp
+
+      library.borrow_book(title, member)
+
+    else
+      puts "Member Not Found"
+    end
+
+  when 5
+    print "Enter Member Name: "
+    member_name = gets.chomp
+
+    member = library.find_member(member_name)
+
+    if member
+
+      print "Enter Book Title: "
+      title = gets.chomp
+
+      library.return_book(title, member)
+
+    else
+      puts "Member Not Found"
+    end
+
+  when 6
+    print "Enter Author Name: "
+    author = gets.chomp
+
+    library.search_by_author(author)
+
+  when 7
+    library.available_books_count
+
+  when 8
+    library.borrowed_books_count
+
+  when 9
+    puts "Thank You For Using Library Management System"
+    break
+
+  else
+    puts "Invalid Choice"
+  end
+end
