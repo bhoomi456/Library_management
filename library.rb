@@ -1,21 +1,21 @@
 class Library
   MAX_BORROW_LIMIT = 2
-  attr_reader :library_name
+  attr_reader :name
   def initialize(name)
     @name = name
     @books = []
-    @member = []
+    @members = []
   end
 
   def add_member(member)
-    @member << member
+    @members << member
     puts "#{member} Added Successfully "
   end
 
   def add_book(book)
     existing_book = @books.find do |b|  #Prevent duplicate books with the same title.
 
-      b.title == book.title
+      b.title.downcase == book.title.downcase
     end
     if existing_book
       puts "Book Already Exist"
@@ -43,7 +43,7 @@ class Library
   end
 
   def find_book(title)
-    found = @books.find {|book| book.title == title}
+    found = @books.find {|book| book.title.downcase == title.downcase}
     if found
       found
     else
@@ -52,9 +52,7 @@ class Library
   end
 
   def search_by_author(author)
-    books = @books.select do |book|
-      book.author == author
-    end
+    books = @books.select { |book| book.author.downcase == author.downcase }
     if books.empty?
       puts "No Books found"
     else
@@ -65,16 +63,13 @@ class Library
   end
 
   def available_books_count
-    count = @books.count do |book|
-      book.available?
-    end
+    count = @books.count { |book| book.available? }    
     puts "Available books : #{count}"
   end
 
   def borrowed_books_count
-    count = @books.count do |book|
-      !book.available?
-    end
+    count = @books.count { |book| !book.available? }    
+
     puts "Borrowed books : #{count}"
   end
 
@@ -88,7 +83,7 @@ class Library
       puts "Book Not Available"
 
     elsif member.limit_reached?
-      puts "puts #{member.name} cannot borrow more that two books"
+      puts " #{member.name} cannot borrow more that two books"
       
     else
       book.borrow
@@ -103,7 +98,7 @@ class Library
 
     if book.nil?
       puts "Book Not Found"
-    elsif member.borrowed.include?(book)
+    elsif member.borrowed.include?(book)  
       book.return
 
       member.remove_borrow_book(book)
@@ -114,5 +109,3 @@ class Library
     end
   end
 end
-
-  
