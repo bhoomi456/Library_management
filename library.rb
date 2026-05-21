@@ -1,5 +1,3 @@
-require_relative "book"
-
 class Library
   attr_reader :library_name
   def initialize(name)
