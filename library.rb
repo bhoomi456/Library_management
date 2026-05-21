@@ -83,10 +83,13 @@ class Library
 
     if book.nil?
       puts "Book not found"
+
     elsif !book.available?
       puts "Book Not Available"
+
     elsif member.limit_reached?
       puts "puts #{member.name} cannot borrow more that two books"
+      
     else
       book.borrow
       member.add_borrow_book(book)
