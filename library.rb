@@ -3,6 +3,12 @@ class Library
   def initialize(name)
     @name = name
     @books = []
+    @member = []
+  end
+
+  def add_member(member)
+    @member << member
+    puts "#{member.name} Added Successfully "
   end
 
   def add_book(book)
