@@ -8,7 +8,7 @@ class Library
   end
 
   def add_member(member)
-    @members << member
+    @member << member
     puts "#{member} Added Successfully "
   end
 
@@ -87,12 +87,11 @@ class Library
       
     else
       book.borrow
-      member.add_borrow_book(book)
+      member.add_borrowed_book(book)
 
       puts "#{book.title} borrowed by #{member.name}"
     end
   end
-
   def return_book(title, member)
     book = find_book(title)
 
@@ -107,5 +106,5 @@ class Library
     else
       puts "#{member.name} did not borrow this book"
     end
-  end
+  end 
 end
