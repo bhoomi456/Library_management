@@ -73,7 +73,7 @@ class Library
 
   def borrowed_books_count
     count = @books.count do |book|
-      book.available?
+      !book.available?
     end
     puts "Borrowed books : #{count}"
   end
@@ -98,24 +98,21 @@ class Library
     end
   end
 
+  def return_book(title, member)
+    book = find_book(title)
 
-  
+    if book.nil?
+      puts "Book Not Found"
+    elsif member.borrowed.include?(book)
+      book.return
 
-  # def return_book(title)
-  #   book_action(title, :return, "Book Not Exist")
-  # end
+      member.remove_borrow_book(book)
 
-  # private
-
-  # def book_action(title, action, error_message)
-  #   book = find_book(title)
-
-  #   if book
-  #     book.send(action)
-  #   else
-  #     puts error_message
-  #   end
-  # end
+      puts "#{book.title} Returned by #{member.name}"
+    else
+      puts "#{member.name} did not borrow this book"
+    end
+  end
 end
 
   

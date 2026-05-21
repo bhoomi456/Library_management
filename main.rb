@@ -30,7 +30,7 @@ puts "----------------------"
 library.borrow_book("Ruby Basic", member1)
 puts "----------------------"
 library.display_books
-
+library.return_book("Ruby Basic", member1)
 puts "----------------------"
 library.display_books
 
