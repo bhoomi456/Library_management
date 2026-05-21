@@ -10,6 +10,8 @@ book4 = Book.new("Java", "David")
 
 library = Library.new("City Library")
 member1 = Member.new("Bhoomi")
+member1 = Member.new("Bhoomi")
+
 library.add_member("Bhoomi")
 library.display_books
 puts "----------------------"
